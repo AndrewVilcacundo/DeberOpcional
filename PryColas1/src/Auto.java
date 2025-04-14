@@ -1,3 +1,5 @@
+import java.time.Year;
+
 public class Auto {
     private String marca;
     private int anio;
@@ -23,10 +25,19 @@ public class Auto {
         this.anio = anio;
     }
 
+    public int calcularPago() {
+        int anioActual = Year.now().getValue();
+        int antiguedad = anioActual - anio;
+        if (antiguedad < 0) antiguedad = 0;
+        return antiguedad * 50;
+    }
+
     @Override
     public String toString() {
-        return "\n---Auto---\n"+
-                "Marca: "+marca+
-                "\t Año: "+anio;
+        return "\n---Auto---\n" +
+                "Marca: " + marca +
+                "\t Año: " + anio;
     }
 }
+
+
